@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akash Hack Prediction hack1</title>
+  <link rel="stylesheet" href="style1.css" />
+  <style>
+    .high-accuracy {
+      background-color: #d4edda !important;
+      font-weight: bold;
+      color: #155724 !important;
+    }
+    .medium-accuracy {
+      background-color: #fff3cd !important;
+      color: #856404 !important;
+    }
+    
+    .high-accuracy {
+      background-color: #32cd32 !important;
+      color: white !important;
+      font-weight: bold !important;
+    }
+    
+    /* New styles for percentage colors */
+    .confidence-high {
+      background-color: #28a745 !important;
+      color: white !important;
+      font-weight: bold;
+    }
+    .confidence-medium {
+      background-color: #ffc107 !important;
+      color: black !important;
+    }
+    .confidence-low {
+      background-color: #fd7e14 !important;
+      color: white !important;
+    }
+    .confidence-very-low {
+      background-color: #dc3545 !important;
+      color: white !important;
+    }
+    
+    /* Stats panel */
+    .stats-panel {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      font-size: 14px;
+    }
+    
+    .percentage-badge {
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 10px;
+      margin-left: 5px;
+    }
+    .percentage-green { background: #d4edda; color: #155724; }
+    .percentage-yellow { background: #fff3cd; color: #856404; }
+    .percentage-orange { background: #ffe5d0; color: #d35400; }
+    .percentage-red { background: #f8d7da; color: #721c24; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="animate">Welcome to Akash Hack 1</h1>
+
+    <!-- Stats Display Section -->
+    <div id="statsDisplay" class="stats-panel" style="display: none;">
+      <!-- Dynamic content will be inserted here by JavaScript -->
+    </div>
+
+    <div class="input-section">
+      <input type="number" id="numberInput" placeholder="Enter prediction number" 
+             oninput="showDetailedStats(parseInt(this.value))" />
+      <div id="suggestionText" class="suggestion-text"></div>
+
+      <div class="buttons">
+        <button onclick="submitResult('BIG')">BIG</button>
+        <button onclick="submitResult('SMALL')">SMALL</button>
+      </div>
+    </div>
+    
+    <h2 id="prediction" class="text-lg font-bold text-blue-600 mb-4"></h2>
+
+    <div class="table-section">
+      <table>
+        <thead>
+          <tr>
+            <th>Number</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+
+      <div style="display: flex; align-items: center; justify-content: space-evenly; margin-top: 10px;">
+        <button id="prevBtn" onclick="prevPage()">⬅️ Previous</button>
+        <button id="nextBtn" onclick="nextPage()">Next ➡️</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 🔍 Suggestion Range Section -->
+  <div id="range-section" style="
+    position: fixed;
+    left: 10px;
+    top: 50px;
+    background: #fdfdfd;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 320px;
+    z-index: 1000;
+    border: 1px solid #e0e0e0;
+    max-height: 80vh;
+    overflow-y: auto;
+    resize: both;
+  ">
+    <h3 style="
+      margin-bottom: 16px;
+      color: #222;
+      font-size: 18px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 8px;
+    ">📊 Suggestion Range Analysis</h3>
+    
+    <input type="number" id="startRange" placeholder="Start Number" style="
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      box-sizing: border-box;
+    " />
+
+    <input type="number" id="endRange" placeholder="End Number" style="
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      box-sizing: border-box;
+    " />
+
+    <button onclick="generateRangeSuggestions()" style="
+      width: 100%;
+      padding: 10px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      transition: background-color 0.2s;
+    " onmouseover="this.style.backgroundColor='#218838'" onmouseout="this.style.backgroundColor='#28a745'">
+      🔍 Get Suggestions
+    </button>
+
+    <div style="margin-bottom: 10px; font-size: 12px; color: #666;">
+      <div style="margin-bottom: 5px;">
+        <span style="background-color: #28a745; padding: 2px 6px; border-radius: 4px; color: white;">🟢 70%+ Confidence</span>
+        <span style="background-color: #ffc107; padding: 2px 6px; border-radius: 4px; margin-left: 5px;">🟡 60-69%</span>
+      </div>
+      <div>
+        <span style="background-color: #fd7e14; padding: 2px 6px; border-radius: 4px; color: white;">🟠 50-59%</span>
+        <span style="background-color: #dc3545; padding: 2px 6px; border-radius: 4px; margin-left: 5px; color: white;">🔴 Below 50%</span>
+      </div>
+    </div>
+
+    <table style="margin-top: 10px; width: 100%; border-collapse: collapse; text-align: center; font-size: 12px;">
+      <thead>
+        <tr>
+          <th style="padding: 8px; background: #f0f0f0; color: #333; border-bottom: 1px solid #ccc;">Number</th>
+          <th style="padding: 8px; background: #f0f0f0; color: #333; border-bottom: 1px solid #ccc;">Hack1<br>Suggestion</th>
+          <th style="padding: 8px; background: #f0f0f0; color: #333; border-bottom: 1px solid #ccc;">Hack2<br>Suggestion</th>
+          <th style="padding: 8px; background: #f0f0f0; color: #333; border-bottom: 1px solid #ccc;">Match<br>Confidence</th>
+        </tr>
+      </thead>
+      <tbody id="rangeSuggestionTableBody" style="color: #222;"></tbody>
+    </table>
+    
+    <!-- Summary Statistics -->
+    <div id="rangeSummary" style="margin-top: 15px; padding: 10px; background: #f8f9fa; border-radius: 5px; font-size: 12px; display: none;">
+      <strong>📈 Summary:</strong>
+      <div id="summaryContent"></div>
+    </div>
+  </div>
+
+  <!-- Help Button -->
+  <button onclick="toggleHelp()" style="
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  ">?</button>
+
+  <!-- Help Panel -->
+  <div id="helpPanel" style="
+    position: fixed;
+    right: 20px;
+    bottom: 80px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    width: 300px;
+    display: none;
+    z-index: 1001;
+    border: 1px solid #ddd;
+  ">
+    <h4 style="margin-top: 0;">How to Use Hack1:</h4>
+    <p><strong>Hack1 Suggestion:</strong> Based on your Hack1 data pattern</p>
+    <p><strong>Hack2 Suggestion:</strong> Cross-check with Hack2 data</p>
+    <p><strong>Match Confidence:</strong> When both suggestions agree</p>
+    <p><strong>Colors:</strong><br>
+      🟢 70%+ High Confidence<br>
+      🟡 60-69% Medium<br>
+      🟠 50-59% Low<br>
+      🔴 Below 50% Very Low
+    </p>
+    <button onclick="toggleHelp()" style="
+      width: 100%;
+      padding: 5px;
+      background: #6c757d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 10px;
+    ">Close</button>
+  </div>
+
+  <script src="script.js"></script>
+  
+  <script>
+    // Help panel toggle
+    function toggleHelp() {
+      const panel = document.getElementById('helpPanel');
+      panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+    }
+    
+    // Close help when clicking outside
+    document.addEventListener('click', function(event) {
+      const helpPanel = document.getElementById('helpPanel');
+      const helpButton = event.target.closest('button[onclick="toggleHelp()"]');
+      
+      if (!helpPanel.contains(event.target) && !helpButton && helpPanel.style.display === 'block') {
+        helpPanel.style.display = 'none';
+      }
+    });
+    
+    // Get percentage badge color
+    function getPercentageBadgeColor(percent) {
+      if (percent >= 70) return 'percentage-green';
+      if (percent >= 60) return 'percentage-yellow';
+      if (percent >= 50) return 'percentage-orange';
+      return 'percentage-red';
+    }
+    
+    // Get confidence class
+    function getConfidenceClass(percent) {
+      if (percent >= 70) return 'confidence-high';
+      if (percent >= 60) return 'confidence-medium';
+      if (percent >= 50) return 'confidence-low';
+      return 'confidence-very-low';
+    }
+    
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+      const input = document.getElementById('numberInput');
+      if (input) {
+        input.focus();
+      }
+    });
+  </script>
+</body>
+</html>

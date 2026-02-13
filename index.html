@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AKASH HACK | COMMAND CENTER</title>
+    <style>
+        :root {
+            --hacker-green: #00ff41;
+            --hacker-red: #ff3131;
+            --cyber-blue: #00d4ff;
+            --bg-dark: #050505;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--hacker-green);
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: hidden;
+        }
+
+        /* Matrix Background */
+        #matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.15;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            z-index: 1;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 0 0 10px var(--hacker-green);
+            animation: flicker 2s infinite;
+        }
+
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+            20%, 22%, 24%, 55% { opacity: 0.5; }
+        }
+
+        .panel {
+            background: rgba(10, 10, 10, 0.9);
+            border: 2px solid var(--hacker-green);
+            border-radius: 5px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+            position: relative;
+        }
+
+        .box {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid #333;
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 25px;
+            transition: 0.3s;
+        }
+
+        .box:hover {
+            border-color: var(--hacker-green);
+            transform: scale(1.02);
+        }
+
+        .stats-num {
+            font-size: 2rem;
+            color: white;
+            text-shadow: 0 0 5px var(--cyber-blue);
+        }
+
+        input {
+            background: #000;
+            border: 1px solid var(--hacker-green);
+            color: var(--hacker-green);
+            padding: 10px;
+            outline: none;
+            width: 100px;
+            margin-top: 10px;
+            font-family: inherit;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: 1px solid var(--hacker-green);
+            background: transparent;
+            color: var(--hacker-green);
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: 0.4s;
+            margin: 5px;
+        }
+
+        button:hover {
+            background: var(--hacker-green);
+            color: black;
+            box-shadow: 0 0 15px var(--hacker-green);
+        }
+
+        .btn-red {
+            border-color: var(--hacker-red);
+            color: var(--hacker-red);
+        }
+
+        .btn-red:hover {
+            background: var(--hacker-red);
+            box-shadow: 0 0 15px var(--hacker-red);
+        }
+
+        .btn-blue {
+            border-color: var(--cyber-blue);
+            color: var(--cyber-blue);
+            width: 100%;
+        }
+
+        .btn-blue:hover {
+            background: var(--cyber-blue);
+            box-shadow: 0 0 15px var(--cyber-blue);
+        }
+
+        .btn-nav {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 8;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 255, 65, 0.1) 50%, rgba(0, 0, 0, 0) 100%);
+            opacity: 0.1;
+            position: absolute;
+            bottom: 100%;
+            animation: scanline 10s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { bottom: 100%; }
+            100% { bottom: -100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="matrix"></canvas>
+    <div class="scanline"></div>
+
+    <div class="container">
+        <h1>System Override Manager</h1>
+
+        <div class="panel">
+            <div class="box">
+                <h3 style="color: var(--hacker-green);">[ DATA_NODE_01 ] - HACK 1</h3>
+                <p>Status: <span id="count1" class="stats-num">0</span> Sequences</p>
+                <input type="number" id="del1" placeholder="SEQ_QTY">
+                <button class="btn-red" onclick="deleteData('data1')">Purge Sequences</button>
+            </div>
+
+            <div class="box">
+                <h3 style="color: var(--hacker-green);">[ DATA_NODE_02 ] - HACK 2</h3>
+                <p>Status: <span id="count2" class="stats-num">0</span> Sequences</p>
+                <input type="number" id="del2" placeholder="SEQ_QTY">
+                <button class="btn-red" onclick="deleteData('data2')">Purge Sequences</button>
+            </div>
+
+            <div class="box" style="border-color: var(--cyber-blue);">
+                <h3 style="color: var(--cyber-blue);">CORE SYSTEM RECOVERY</h3>
+                <p style="font-size: 0.8rem; color: #666;">Reload initial source protocols from JSON database:</p>
+                <button class="btn-blue" onclick="restoreAll()">Initialize Full Recovery</button>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; display: flex; justify-content: center; gap: 20px;">
+            <a href="./index1.html"><button class="btn-nav">Terminal 01</button></a>
+            <a href="./index1.html"><button class="btn-nav">Terminal 02</button></a>
+        </div>
+    </div>
+
+    <script>
+        // Matrix Rain Animation
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$+-*/=%\"'#&_(),.;:?!\\|{}<>[]^~";
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+        for (let i = 0; i < columns; i++) drops[i] = 1;
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#0f0';
+            ctx.font = fontSize + 'px arial';
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+                drops[i]++;
+            }
+        }
+        setInterval(drawMatrix, 33);
+
+        // Core Logic
+        function updateStats() {
+            const d1 = JSON.parse(localStorage.getItem('data1')) || [];
+            const d2 = JSON.parse(localStorage.getItem('data2')) || [];
+            document.getElementById('count1').innerText = d1.length;
+            document.getElementById('count2').innerText = d2.length;
+        }
+
+        function deleteData(key) {
+            let data = JSON.parse(localStorage.getItem(key)) || [];
+            let inputId = key === 'data1' ? 'del1' : 'del2';
+            let qty = parseInt(document.getElementById(inputId).value);
+            
+            if(!qty || qty <= 0) return alert("ACCESS DENIED: Enter Valid Quantity");
+            
+            data.splice(0, qty);
+            localStorage.setItem(key, JSON.stringify(data));
+            updateStats();
+            alert("COMMAND EXECUTED: " + qty + " entries purged.");
+        }
+
+        async function restoreAll() {
+            if(!confirm("WARNING: All current memory will be overwritten. Proceed?")) return;
+            try {
+                const r1 = await fetch('data1.json');
+                const r2 = await fetch('data2.json');
+                localStorage.setItem('data1', JSON.stringify(await r1.json()));
+                localStorage.setItem('data2', JSON.stringify(await r2.json()));
+                updateStats();
+                alert("SYSTEM RECOVERED: Source data synchronized.");
+            } catch(e) { 
+                alert("SYSTEM ERROR: Source files not found."); 
+            }
+        }
+
+        window.onload = updateStats;
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
