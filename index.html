@@ -405,6 +405,316 @@
             input { width: 100%; margin-right: 0; margin-bottom: 10px; }
             .btn-nav { width: 100%; min-width: unset; }
         }
+
+
+        /* ===== ENHANCED RESPONSIVE CODE ===== */
+
+/* Extra Large Devices (Desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1100px;
+    }
+    h1 {
+        font-size: 3.2rem;
+    }
+}
+
+/* Large Devices (Laptops/Desktops, 992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .container {
+        max-width: 900px;
+        margin: 40px auto;
+    }
+    h1 {
+        font-size: 2.8rem;
+    }
+    .panel {
+        padding: 35px;
+    }
+}
+
+/* Medium Devices (Tablets Landscape, 768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .container {
+        max-width: 700px;
+        margin: 30px auto;
+        padding: 15px;
+    }
+    h1 {
+        font-size: 2.4rem;
+        letter-spacing: 6px;
+        margin-bottom: 25px;
+    }
+    .terminal-status {
+        font-size: 1rem;
+        letter-spacing: 3px;
+    }
+    .panel {
+        padding: 30px;
+    }
+    .panel::before, .panel::after {
+        font-size: 24px;
+    }
+    .box h3 {
+        font-size: 1.6rem;
+    }
+    .stats-num {
+        font-size: 2.2rem;
+    }
+    .btn-nav {
+        min-width: 180px;
+        padding: 16px 30px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Small Devices (Tablets Portrait, 576px to 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+    .container {
+        max-width: 500px;
+        margin: 20px auto;
+        padding: 12px;
+    }
+    h1 {
+        font-size: 2rem;
+        letter-spacing: 4px;
+        margin-bottom: 20px;
+    }
+    .terminal-status {
+        font-size: 0.9rem;
+        letter-spacing: 3px;
+        margin-bottom: 20px;
+    }
+    .panel {
+        padding: 25px;
+    }
+    .panel::before, .panel::after {
+        font-size: 20px;
+    }
+    .box {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    .box h3 {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+    }
+    .box p {
+        font-size: 1rem;
+    }
+    .stats-num {
+        font-size: 2rem;
+    }
+    .nav-container {
+        gap: 15px;
+        margin-top: 30px;
+    }
+    .btn-nav {
+        min-width: 160px;
+        padding: 14px 25px;
+        font-size: 1.1rem;
+        margin: 8px 5px;
+    }
+    .status-bar {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        padding: 15px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Extra Small Devices (Mobile Landscape, 480px to 575px) */
+@media (min-width: 480px) and (max-width: 575px) {
+    .container {
+        max-width: 440px;
+        margin: 15px auto;
+        padding: 10px;
+    }
+    h1 {
+        font-size: 1.8rem;
+        letter-spacing: 3px;
+        margin-bottom: 15px;
+    }
+    .terminal-status {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+        margin-bottom: 15px;
+    }
+    .panel {
+        padding: 20px;
+    }
+    .panel::before, .panel::after {
+        font-size: 18px;
+        opacity: 0.4;
+    }
+    .box {
+        padding: 18px;
+        margin-bottom: 18px;
+    }
+    .box h3 {
+        font-size: 1.3rem;
+        letter-spacing: 2px;
+    }
+    .box p {
+        font-size: 0.95rem;
+        margin: 10px 0;
+    }
+    .stats-num {
+        font-size: 1.8rem;
+        margin-left: 5px;
+    }
+    .nav-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        margin-top: 25px;
+    }
+    .btn-nav {
+        width: 100%;
+        min-width: unset;
+        padding: 14px 20px;
+        font-size: 1rem;
+        margin: 5px 0;
+    }
+    .status-bar {
+        flex-direction: column;
+        gap: 6px;
+        text-align: center;
+        padding: 12px;
+        font-size: 0.75rem;
+    }
+    input {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+        font-size: 1rem;
+        padding: 12px 15px;
+    }
+    button:not(.btn-nav) {
+        width: 100%;
+        margin: 5px 0;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+    .box > div[style*="display: flex"] {
+        flex-direction: column;
+        align-items: stretch !important;
+    }
+}
+
+/* Ultra Small Devices (Mobile Portrait, below 480px) */
+@media (max-width: 479px) {
+    .container {
+        max-width: 100%;
+        margin: 10px auto;
+        padding: 8px;
+    }
+    h1 {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+        margin-bottom: 12px;
+    }
+    .terminal-status {
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+        margin-bottom: 12px;
+        border-right: 1px solid cyan;
+        padding-right: 5px;
+    }
+    .panel {
+        padding: 15px;
+        border-radius: 18px;
+    }
+    .panel::before, .panel::after {
+        font-size: 16px;
+        opacity: 0.3;
+    }
+    .box {
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 12px;
+    }
+    .box h3 {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+        padding-bottom: 8px;
+    }
+    .box p {
+        font-size: 0.9rem;
+        margin: 8px 0;
+    }
+    .stats-num {
+        font-size: 1.6rem;
+        margin-left: 5px;
+    }
+    .small-text {
+        font-size: 0.7rem;
+        padding-top: 8px;
+        margin-top: 8px;
+    }
+    .nav-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        margin-top: 20px;
+    }
+    .btn-nav {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+        margin: 3px 0;
+    }
+    .status-bar {
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+        padding: 10px;
+        font-size: 0.7rem;
+        margin-top: 20px;
+    }
+    input {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+        padding: 10px 12px;
+    }
+    button:not(.btn-nav) {
+        width: 100%;
+        margin: 4px 0;
+        padding: 10px 16px;
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+    }
+    .box > div[style*="display: flex"] {
+        flex-direction: column;
+        align-items: stretch !important;
+    }
+    .btn-blue {
+        font-size: 1rem;
+        padding: 14px;
+    }
+}
+
+/* Handle very small devices (below 360px) */
+@media (max-width: 359px) {
+    h1 {
+        font-size: 1.3rem;
+    }
+    .box h3 {
+        font-size: 1.1rem;
+    }
+    .stats-num {
+        font-size: 1.4rem;
+    }
+    .btn-nav, .btn-blue {
+        font-size: 0.8rem;
+        padding: 10px 12px;
+    }
+}
     </style>
 </head>
 <body>
@@ -555,3 +865,4 @@
     </script>
 </body>
 </html>
+
