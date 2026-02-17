@@ -3,153 +3,407 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AKASH HACK | COMMAND CENTER</title>
+    <title>⚡ AKASH HACK | COMMAND CENTER ⚡</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <style>
         :root {
-            --hacker-green: #00ff41;
+            --hacker-green: #00ff9d;
             --hacker-red: #ff3131;
             --cyber-blue: #00d4ff;
-            --bg-dark: #050505;
+            --bg-dark: #030405;
+            --bg-darker: #0a0c0f;
+            --glow-green: 0 0 10px #00ff9d, 0 0 20px #00ff9d, 0 0 40px #00cc7a;
+            --glow-cyan: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 40px #0088cc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body, html {
             margin: 0;
             padding: 0;
-            background-color: var(--bg-dark);
+            background: radial-gradient(circle at 50% 50%, var(--bg-darker), var(--bg-dark));
             color: var(--hacker-green);
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Share Tech Mono', 'Courier New', monospace;
             overflow-x: hidden;
+            min-height: 100vh;
+            text-shadow: 0 0 5px rgba(0, 255, 157, 0.5);
+            position: relative;
         }
 
-        /* Matrix Background */
+        /* Matrix Rain Canvas */
         #matrix {
             position: fixed;
             top: 0;
             left: 0;
-            z-index: -1;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
             opacity: 0.15;
+            pointer-events: none;
+        }
+
+        /* Glass morphism overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(0deg, 
+                rgba(0, 255, 157, 0.03) 0px, 
+                rgba(0, 255, 157, 0.01) 2px, 
+                transparent 3px, 
+                transparent 8px);
+            pointer-events: none;
+            z-index: 1;
+            animation: scan 10s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 20px; }
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 50px auto;
             padding: 20px;
-            z-index: 1;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            text-shadow: 0 0 10px var(--hacker-green);
-            animation: flicker 2s infinite;
-        }
-
-        @keyframes flicker {
-            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
-            20%, 22%, 24%, 55% { opacity: 0.5; }
-        }
-
-        .panel {
-            background: rgba(10, 10, 10, 0.9);
-            border: 2px solid var(--hacker-green);
-            border-radius: 5px;
-            padding: 30px;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+            z-index: 10;
             position: relative;
         }
 
+        /* Glitch Text Effect */
+        h1 {
+            text-align: center;
+            font-size: 2.8rem;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            color: var(--hacker-green);
+            text-shadow: 0 0 10px var(--hacker-green), 0 0 20px var(--hacker-green), 0 0 40px #00cc7a, 3px 3px 0 #003300;
+            animation: glitch 3s infinite;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 10;
+            word-break: break-word;
+        }
+
+        @keyframes glitch {
+            0%, 100% { transform: skew(0deg, 0deg); opacity: 1; }
+            95% { transform: skew(5deg, 1deg); text-shadow: 0 0 30px cyan, 3px 0 red, -3px 0 blue; }
+            96% { transform: skew(-3deg, -0.5deg); text-shadow: 0 0 30px magenta, -3px 0 green; }
+            97% { transform: skew(2deg, 0deg); }
+        }
+
+        /* Status line under heading */
+        .terminal-status {
+            color: var(--cyber-blue);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px cyan;
+            border-right: 2px solid cyan;
+            padding-right: 10px;
+            display: inline-block;
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { border-right-color: cyan; }
+            50% { border-right-color: transparent; }
+        }
+
+        /* Main Panel - Glass Morphism */
+        .panel {
+            background: rgba(10, 20, 15, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2px solid var(--hacker-green);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 0 50px rgba(0, 255, 157, 0.3), inset 0 0 30px rgba(0, 255, 157, 0.1);
+            position: relative;
+            animation: panel-glow 4s infinite alternate;
+        }
+
+        @keyframes panel-glow {
+            0% { box-shadow: 0 0 40px rgba(0, 255, 157, 0.2), inset 0 0 20px rgba(0, 255, 157, 0.1); }
+            100% { box-shadow: 0 0 80px rgba(0, 255, 157, 0.5), inset 0 0 50px rgba(0, 255, 157, 0.2); }
+        }
+
+        /* Corner Decorations */
+        .panel::before {
+            content: "◈";
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            color: var(--hacker-green);
+            font-size: 28px;
+            text-shadow: 0 0 25px var(--hacker-green);
+            opacity: 0.6;
+            transform: rotate(45deg);
+        }
+
+        .panel::after {
+            content: "◈";
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            color: var(--cyber-blue);
+            font-size: 32px;
+            text-shadow: 0 0 30px var(--cyber-blue);
+            opacity: 0.6;
+            transform: rotate(-45deg);
+        }
+
+        /* Data Boxes */
         .box {
-            background: rgba(20, 20, 20, 0.8);
-            border: 1px solid #333;
-            padding: 20px;
-            border-radius: 4px;
-            margin-bottom: 25px;
+            background: rgba(0, 25, 12, 0.6);
+            backdrop-filter: blur(5px);
+            border: 1.5px solid #333;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 30px;
             transition: 0.3s;
+            position: relative;
+            overflow: hidden;
         }
 
         .box:hover {
             border-color: var(--hacker-green);
-            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(0, 255, 157, 0.4), inset 0 0 20px rgba(0, 255, 157, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .box h3 {
+            color: var(--hacker-green);
+            text-shadow: 0 0 10px var(--hacker-green);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+            border-bottom: 1px dashed #00ff9d;
+            padding-bottom: 10px;
+        }
+
+        .box p {
+            font-size: 1.2rem;
+            color: #b0ffb0;
+            text-shadow: 0 0 4px #0f0;
+            margin: 15px 0;
         }
 
         .stats-num {
-            font-size: 2rem;
-            color: white;
-            text-shadow: 0 0 5px var(--cyber-blue);
+            font-size: 2.5rem;
+            color: #ffb86b;
+            text-shadow: 0 0 20px orange;
+            animation: pulse 1.5s infinite;
+            display: inline-block;
+            margin-left: 10px;
+            font-weight: 900;
+        }
+
+        @keyframes pulse {
+            0%, 100% { text-shadow: 0 0 20px orange; }
+            50% { text-shadow: 0 0 40px orange, 0 0 60px #ff9900; }
         }
 
         input {
-            background: #000;
-            border: 1px solid var(--hacker-green);
-            color: var(--hacker-green);
-            padding: 10px;
-            outline: none;
-            width: 100px;
+            background: #051008;
+            border: 2px solid var(--hacker-green);
+            color: white;
+            padding: 14px 18px;
+            border-radius: 12px;
+            width: 120px;
+            margin-right: 10px;
             margin-top: 10px;
-            font-family: inherit;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.2rem;
+            text-align: center;
+            outline: none;
+            box-shadow: 0 0 20px rgba(0, 255, 157, 0.4), inset 0 0 10px rgba(0, 255, 157, 0.2);
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: var(--cyber-blue);
+            box-shadow: 0 0 40px cyan, inset 0 0 20px cyan;
+            background: #000;
         }
 
         button {
-            padding: 10px 20px;
-            border: 1px solid var(--hacker-green);
+            padding: 14px 25px;
+            border: 2px solid var(--hacker-green);
             background: transparent;
             color: var(--hacker-green);
             cursor: pointer;
             text-transform: uppercase;
-            font-weight: bold;
+            font-weight: 900;
+            letter-spacing: 3px;
             transition: 0.4s;
             margin: 5px;
+            border-radius: 12px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1rem;
+            box-shadow: 0 0 20px rgba(0, 255, 157, 0.4);
+            text-shadow: 0 0 8px var(--hacker-green);
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: rotate(30deg);
+            transition: 0.6s;
+        }
+
+        button:hover::after {
+            left: 100%;
         }
 
         button:hover {
             background: var(--hacker-green);
             color: black;
-            box-shadow: 0 0 15px var(--hacker-green);
+            box-shadow: 0 0 50px var(--hacker-green);
+            border-color: white;
+            transform: translateY(-2px);
         }
 
         .btn-red {
             border-color: var(--hacker-red);
-            color: var(--hacker-red);
+            color: #ff8888;
+            box-shadow: 0 0 20px rgba(255, 68, 68, 0.4);
+            text-shadow: 0 0 8px #ff4444;
         }
 
         .btn-red:hover {
             background: var(--hacker-red);
-            box-shadow: 0 0 15px var(--hacker-red);
+            color: white;
+            box-shadow: 0 0 60px #ff4444;
+            border-color: white;
         }
 
         .btn-blue {
             border-color: var(--cyber-blue);
             color: var(--cyber-blue);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+            text-shadow: 0 0 8px cyan;
             width: 100%;
+            padding: 18px;
+            font-size: 1.3rem;
+            margin-top: 10px;
         }
 
         .btn-blue:hover {
             background: var(--cyber-blue);
-            box-shadow: 0 0 15px var(--cyber-blue);
+            color: black;
+            box-shadow: 0 0 70px cyan;
         }
 
         .btn-nav {
-            padding: 15px 40px;
-            font-size: 1.2rem;
-            margin-top: 20px;
+            padding: 18px 45px;
+            font-size: 1.3rem;
+            margin: 15px 10px;
+            border-color: var(--hacker-green);
+            color: var(--hacker-green);
+            min-width: 220px;
         }
 
+        .btn-nav:hover {
+            background: var(--hacker-green);
+            color: black;
+            box-shadow: 0 0 70px var(--hacker-green);
+        }
+
+        /* Scanline Animation */
         .scanline {
             width: 100%;
             height: 100px;
-            z-index: 8;
-            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 255, 65, 0.1) 50%, rgba(0, 0, 0, 0) 100%);
-            opacity: 0.1;
-            position: absolute;
+            z-index: 5;
+            background: linear-gradient(0deg, 
+                rgba(0, 0, 0, 0) 0%, 
+                rgba(0, 255, 157, 0.15) 50%, 
+                rgba(0, 0, 0, 0) 100%);
+            opacity: 0.3;
+            position: fixed;
             bottom: 100%;
-            animation: scanline 10s linear infinite;
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
         }
 
         @keyframes scanline {
             0% { bottom: 100%; }
             100% { bottom: -100%; }
+        }
+
+        /* Navigation Buttons Container */
+        .nav-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 10;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* Small text */
+        .small-text {
+            color: #88ff88;
+            font-size: 0.9rem;
+            border-top: 1px dashed var(--hacker-green);
+            padding-top: 12px;
+            margin-top: 12px;
+            letter-spacing: 1px;
+        }
+
+        /* Status Bar */
+        .status-bar {
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid var(--hacker-green);
+            color: #88ff88;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            background: rgba(0, 10, 5, 0.5);
+            border-radius: 0 0 16px 16px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { padding: 15px; }
+            h1 { font-size: 2rem; letter-spacing: 4px; }
+            .panel { padding: 25px; }
+            .box { padding: 20px; }
+            .btn-nav { min-width: 180px; padding: 15px 30px; }
+            .status-bar { flex-direction: column; gap: 10px; text-align: center; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 1.6rem; }
+            .panel { padding: 20px; }
+            .box h3 { font-size: 1.4rem; }
+            input { width: 100%; margin-right: 0; margin-bottom: 10px; }
+            .btn-nav { width: 100%; min-width: unset; }
         }
     </style>
 </head>
@@ -159,33 +413,48 @@
     <div class="scanline"></div>
 
     <div class="container">
-        <h1>System Override Manager</h1>
+        <h1>⚡ SYSTEM OVERRIDE ⚡</h1>
+        <div class="terminal-status">>_ COMMAND CENTER v3.0</div>
 
         <div class="panel">
             <div class="box">
-                <h3 style="color: var(--hacker-green);">[ DATA_NODE_01 ] - HACK 1</h3>
-                <p>Status: <span id="count1" class="stats-num">0</span> Sequences</p>
-                <input type="number" id="del1" placeholder="SEQ_QTY">
-                <button class="btn-red" onclick="deleteData('data1')">Purge Sequences</button>
+                <h3>[ DATA_NODE_01 ] - HACK 1</h3>
+                <p>▶ ACTIVE SEQUENCES: <span id="count1" class="stats-num">0</span></p>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+                    <input type="number" id="del1" placeholder="QTY" min="1">
+                    <button class="btn-red" onclick="deleteData('data1')">✖ PURGE</button>
+                </div>
+                <div class="small-text">⚠️ SOURCE: data1.json</div>
             </div>
 
             <div class="box">
-                <h3 style="color: var(--hacker-green);">[ DATA_NODE_02 ] - HACK 2</h3>
-                <p>Status: <span id="count2" class="stats-num">0</span> Sequences</p>
-                <input type="number" id="del2" placeholder="SEQ_QTY">
-                <button class="btn-red" onclick="deleteData('data2')">Purge Sequences</button>
+                <h3>[ DATA_NODE_02 ] - HACK 2</h3>
+                <p>▶ ACTIVE SEQUENCES: <span id="count2" class="stats-num">0</span></p>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+                    <input type="number" id="del2" placeholder="QTY" min="1">
+                    <button class="btn-red" onclick="deleteData('data2')">✖ PURGE</button>
+                </div>
+                <div class="small-text">⚠️ SOURCE: data2.json</div>
             </div>
 
             <div class="box" style="border-color: var(--cyber-blue);">
-                <h3 style="color: var(--cyber-blue);">CORE SYSTEM RECOVERY</h3>
-                <p style="font-size: 0.8rem; color: #666;">Reload initial source protocols from JSON database:</p>
-                <button class="btn-blue" onclick="restoreAll()">Initialize Full Recovery</button>
+                <h3 style="color: var(--cyber-blue);">🔄 CORE RECOVERY</h3>
+                <p style="color: #aaffff;">Initialize system restore from JSON database:</p>
+                <button class="btn-blue" onclick="restoreAll()">⚡ FULL SYSTEM RECOVERY ⚡</button>
+                <div class="small-text">🔐 ADMIN PRIVILEGES REQUIRED</div>
             </div>
         </div>
 
-        <div style="margin-top: 40px; display: flex; justify-content: center; gap: 20px;">
-            <a href="./index1.html"><button class="btn-nav">Terminal 01</button></a>
-            <a href="./index1.html"><button class="btn-nav">Terminal 02</button></a>
+        <div class="nav-container">
+            <a href="./index1.html"><button class="btn-nav">🚀 TERMINAL 01</button></a>
+            <a href="./index1.html"><button class="btn-nav">🚀 TERMINAL 02</button></a>
+        </div>
+
+        <div class="status-bar">
+            <span>▶ SYSTEM: ONLINE</span>
+            <span>🔒 ENCRYPTION: AES-256</span>
+            <span>📡 NETWORK: SECURE</span>
+            <span>⚡ HACKER MODE: ACTIVE</span>
         </div>
     </div>
 
@@ -193,8 +462,13 @@
         // Matrix Rain Animation
         const canvas = document.getElementById('matrix');
         const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+
         const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$+-*/=%\"'#&_(),.;:?!\\|{}<>[]^~";
         const fontSize = 16;
         const columns = canvas.width / fontSize;
@@ -204,8 +478,8 @@
         function drawMatrix() {
             ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#0f0';
-            ctx.font = fontSize + 'px arial';
+            ctx.fillStyle = '#00ff9d';
+            ctx.font = fontSize + 'px "Share Tech Mono", monospace';
             for (let i = 0; i < drops.length; i++) {
                 const text = letters[Math.floor(Math.random() * letters.length)];
                 ctx.fillText(text, i * fontSize, drops[i] * fontSize);
@@ -217,10 +491,14 @@
 
         // Core Logic
         function updateStats() {
-            const d1 = JSON.parse(localStorage.getItem('data1')) || [];
-            const d2 = JSON.parse(localStorage.getItem('data2')) || [];
-            document.getElementById('count1').innerText = d1.length;
-            document.getElementById('count2').innerText = d2.length;
+            try {
+                const d1 = JSON.parse(localStorage.getItem('data1')) || [];
+                const d2 = JSON.parse(localStorage.getItem('data2')) || [];
+                document.getElementById('count1').innerText = d1.length;
+                document.getElementById('count2').innerText = d2.length;
+            } catch (e) {
+                console.log("Storage error");
+            }
         }
 
         function deleteData(key) {
@@ -228,33 +506,52 @@
             let inputId = key === 'data1' ? 'del1' : 'del2';
             let qty = parseInt(document.getElementById(inputId).value);
             
-            if(!qty || qty <= 0) return alert("ACCESS DENIED: Enter Valid Quantity");
+            if(!qty || qty <= 0) return alert("❌ ERROR: Enter Valid Quantity");
+            if(qty > data.length) return alert("⚠️ ERROR: Not enough entries!");
             
             data.splice(0, qty);
             localStorage.setItem(key, JSON.stringify(data));
             updateStats();
-            alert("COMMAND EXECUTED: " + qty + " entries purged.");
+            alert("✅ COMMAND EXECUTED: " + qty + " entries purged.");
         }
 
         async function restoreAll() {
-            if(!confirm("WARNING: All current memory will be overwritten. Proceed?")) return;
+            if(!confirm("💀 WARNING: All current memory will be overwritten. Proceed?")) return;
             try {
-                const r1 = await fetch('data1.json');
-                const r2 = await fetch('data2.json');
-                localStorage.setItem('data1', JSON.stringify(await r1.json()));
-                localStorage.setItem('data2', JSON.stringify(await r2.json()));
+                const r1 = await fetch('data1.json?_=' + Date.now());
+                const r2 = await fetch('data2.json?_=' + Date.now());
+                
+                if (!r1.ok || !r2.ok) throw new Error('Files not found');
+                
+                const data1 = await r1.json();
+                const data2 = await r2.json();
+                
+                localStorage.setItem('data1', JSON.stringify(data1));
+                localStorage.setItem('data2', JSON.stringify(data2));
+                
                 updateStats();
-                alert("SYSTEM RECOVERED: Source data synchronized.");
+                alert(`🔄 SYSTEM RECOVERED!\n📁 Hack1: ${data1.length} entries\n📁 Hack2: ${data2.length} entries`);
             } catch(e) { 
-                alert("SYSTEM ERROR: Source files not found."); 
+                alert("❌ SYSTEM ERROR: Source files (data1.json, data2.json) not found in root."); 
             }
         }
 
-        window.onload = updateStats;
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
+        // Initialize
+        window.onload = function() {
+            updateStats();
+            
+            // Load initial data if not present
+            if (!localStorage.getItem('data1')) restoreAll();
+            
+            // Glitch effect on heading
+            const h1 = document.querySelector('h1');
+            h1.style.animation = 'glitch 0.3s';
+            setTimeout(() => {
+                h1.style.animation = 'glitch 3s infinite';
+            }, 300);
+        };
+
+        window.addEventListener('resize', resizeCanvas);
     </script>
 </body>
 </html>
