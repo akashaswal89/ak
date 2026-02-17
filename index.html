@@ -9,7 +9,7 @@
 
     <style>
 
-        :root {
+    :root {
     --hacker-green: #00ff9d;
     --hacker-red: #ff3131;
     --cyber-blue: #00d4ff;
@@ -33,12 +33,11 @@ body, html {
     color: var(--hacker-green);
     font-family: 'Share Tech Mono', 'Courier New', monospace;
     overflow-x: hidden;
-    overflow-y: auto;  /* Allow scrolling only if needed */
+    overflow-y: auto;
     min-height: 100vh;
     width: 100%;
     text-shadow: 0 0 5px rgba(0, 255, 157, 0.5);
     position: relative;
-    /* ✅ FIX: Center content vertically */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -83,17 +82,17 @@ body::before {
 .container {
     max-width: 900px;
     width: 100%;
-    margin: 20px auto;  /* Small margin for breathing space */
-    padding: 15px;
+    margin: 10px auto;
+    padding: 10px;
     z-index: 10;
     position: relative;
-    max-height: 95vh;  /* Prevent overflow */
-    overflow-y: auto;  /* Allow internal scrolling if needed */
+    max-height: 85vh;
+    overflow-y: auto;
 }
 
 /* Hide scrollbar for clean look but keep functionality */
 .container::-webkit-scrollbar {
-    width: 6px;
+    width: 4px;
 }
 
 .container::-webkit-scrollbar-track {
@@ -104,19 +103,19 @@ body::before {
 .container::-webkit-scrollbar-thumb {
     background: var(--hacker-green);
     border-radius: 10px;
-    box-shadow: 0 0 15px var(--hacker-green);
+    box-shadow: 0 0 10px var(--hacker-green);
 }
 
 /* Glitch Text Effect */
 h1 {
     text-align: center;
-    font-size: 2.8rem;
+    font-size: 2.2rem;
     text-transform: uppercase;
-    letter-spacing: 8px;
+    letter-spacing: 6px;
     color: var(--hacker-green);
-    text-shadow: 0 0 10px var(--hacker-green), 0 0 20px var(--hacker-green), 0 0 40px #00cc7a, 3px 3px 0 #003300;
+    text-shadow: 0 0 10px var(--hacker-green), 0 0 20px var(--hacker-green), 0 0 40px #00cc7a, 2px 2px 0 #003300;
     animation: glitch 3s infinite;
-    margin-bottom: 20px;  /* Reduced margin */
+    margin-bottom: 12px;
     position: relative;
     z-index: 10;
     word-break: break-word;
@@ -133,12 +132,12 @@ h1 {
 .terminal-status {
     color: var(--cyber-blue);
     text-align: center;
-    margin-bottom: 20px;  /* Reduced margin */
-    font-size: 1.1rem;
-    letter-spacing: 4px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
     text-shadow: 0 0 10px cyan;
     border-right: 2px solid cyan;
-    padding-right: 10px;
+    padding-right: 8px;
     display: inline-block;
     width: auto;
     margin-left: auto;
@@ -157,27 +156,27 @@ h1 {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 2px solid var(--hacker-green);
-    border-radius: 24px;
-    padding: 30px;  /* Reduced padding */
-    box-shadow: 0 0 50px rgba(0, 255, 157, 0.3), inset 0 0 30px rgba(0, 255, 157, 0.1);
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 0 40px rgba(0, 255, 157, 0.3), inset 0 0 20px rgba(0, 255, 157, 0.1);
     position: relative;
     animation: panel-glow 4s infinite alternate;
 }
 
 @keyframes panel-glow {
-    0% { box-shadow: 0 0 40px rgba(0, 255, 157, 0.2), inset 0 0 20px rgba(0, 255, 157, 0.1); }
-    100% { box-shadow: 0 0 80px rgba(0, 255, 157, 0.5), inset 0 0 50px rgba(0, 255, 157, 0.2); }
+    0% { box-shadow: 0 0 30px rgba(0, 255, 157, 0.2), inset 0 0 15px rgba(0, 255, 157, 0.1); }
+    100% { box-shadow: 0 0 60px rgba(0, 255, 157, 0.5), inset 0 0 30px rgba(0, 255, 157, 0.2); }
 }
 
 /* Corner Decorations */
 .panel::before {
     content: "◈";
     position: absolute;
-    top: 10px;
-    left: 15px;
+    top: 8px;
+    left: 12px;
     color: var(--hacker-green);
-    font-size: 24px;
-    text-shadow: 0 0 25px var(--hacker-green);
+    font-size: 20px;
+    text-shadow: 0 0 20px var(--hacker-green);
     opacity: 0.6;
     transform: rotate(45deg);
 }
@@ -185,11 +184,11 @@ h1 {
 .panel::after {
     content: "◈";
     position: absolute;
-    bottom: 10px;
-    right: 15px;
+    bottom: 8px;
+    right: 12px;
     color: var(--cyber-blue);
-    font-size: 28px;
-    text-shadow: 0 0 30px var(--cyber-blue);
+    font-size: 24px;
+    text-shadow: 0 0 25px var(--cyber-blue);
     opacity: 0.6;
     transform: rotate(-45deg);
 }
@@ -199,9 +198,9 @@ h1 {
     background: rgba(0, 25, 12, 0.6);
     backdrop-filter: blur(5px);
     border: 1.5px solid #333;
-    border-radius: 16px;
-    padding: 20px;  /* Reduced padding */
-    margin-bottom: 20px;  /* Reduced margin */
+    border-radius: 14px;
+    padding: 12px;
+    margin-bottom: 12px;
     transition: 0.3s;
     position: relative;
     overflow: hidden;
@@ -209,81 +208,81 @@ h1 {
 
 .box:hover {
     border-color: var(--hacker-green);
-    box-shadow: 0 0 30px rgba(0, 255, 157, 0.4), inset 0 0 20px rgba(0, 255, 157, 0.2);
-    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(0, 255, 157, 0.4), inset 0 0 15px rgba(0, 255, 157, 0.2);
+    transform: translateY(-2px);
 }
 
 .box h3 {
     color: var(--hacker-green);
-    text-shadow: 0 0 10px var(--hacker-green);
-    font-size: 1.6rem;  /* Slightly reduced */
-    margin-bottom: 12px;  /* Reduced margin */
-    letter-spacing: 3px;
+    text-shadow: 0 0 8px var(--hacker-green);
+    font-size: 1.3rem;
+    margin-bottom: 6px;
+    letter-spacing: 2px;
     border-bottom: 1px dashed #00ff9d;
-    padding-bottom: 8px;
+    padding-bottom: 5px;
 }
 
 .box p {
-    font-size: 1.1rem;  /* Slightly reduced */
+    font-size: 1rem;
     color: #b0ffb0;
     text-shadow: 0 0 4px #0f0;
-    margin: 12px 0;  /* Reduced margin */
+    margin: 6px 0;
 }
 
 .stats-num {
-    font-size: 2.2rem;  /* Slightly reduced */
+    font-size: 1.8rem;
     color: #ffb86b;
-    text-shadow: 0 0 20px orange;
+    text-shadow: 0 0 15px orange;
     animation: pulse 1.5s infinite;
     display: inline-block;
-    margin-left: 8px;
+    margin-left: 5px;
     font-weight: 900;
 }
 
 @keyframes pulse {
-    0%, 100% { text-shadow: 0 0 20px orange; }
-    50% { text-shadow: 0 0 40px orange, 0 0 60px #ff9900; }
+    0%, 100% { text-shadow: 0 0 15px orange; }
+    50% { text-shadow: 0 0 30px orange, 0 0 45px #ff9900; }
 }
 
 input {
     background: #051008;
     border: 2px solid var(--hacker-green);
     color: white;
-    padding: 12px 16px;  /* Reduced padding */
-    border-radius: 12px;
-    width: 110px;  /* Slightly smaller */
-    margin-right: 8px;
-    margin-top: 8px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    width: 90px;
+    margin-right: 6px;
+    margin-top: 5px;
     font-family: 'Share Tech Mono', monospace;
-    font-size: 1.1rem;  /* Slightly reduced */
+    font-size: 1rem;
     text-align: center;
     outline: none;
-    box-shadow: 0 0 20px rgba(0, 255, 157, 0.4), inset 0 0 10px rgba(0, 255, 157, 0.2);
+    box-shadow: 0 0 15px rgba(0, 255, 157, 0.4), inset 0 0 8px rgba(0, 255, 157, 0.2);
     transition: 0.3s;
 }
 
 input:focus {
     border-color: var(--cyber-blue);
-    box-shadow: 0 0 40px cyan, inset 0 0 20px cyan;
+    box-shadow: 0 0 30px cyan, inset 0 0 15px cyan;
     background: #000;
 }
 
 button {
-    padding: 12px 22px;  /* Reduced padding */
+    padding: 8px 16px;
     border: 2px solid var(--hacker-green);
     background: transparent;
     color: var(--hacker-green);
     cursor: pointer;
     text-transform: uppercase;
     font-weight: 900;
-    letter-spacing: 2px;  /* Reduced */
+    letter-spacing: 2px;
     transition: 0.4s;
-    margin: 4px;
-    border-radius: 12px;
+    margin: 3px;
+    border-radius: 10px;
     font-family: 'Share Tech Mono', monospace;
-    font-size: 0.95rem;  /* Slightly reduced */
-    box-shadow: 0 0 20px rgba(0, 255, 157, 0.4);
-    text-shadow: 0 0 8px var(--hacker-green);
+    font-size: 0.85rem;
+    box-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
+    text-shadow: 0 0 6px var(--hacker-green);
     position: relative;
     overflow: hidden;
 }
@@ -307,61 +306,61 @@ button:hover::after {
 button:hover {
     background: var(--hacker-green);
     color: black;
-    box-shadow: 0 0 50px var(--hacker-green);
+    box-shadow: 0 0 40px var(--hacker-green);
     border-color: white;
-    transform: translateY(-2px);
+    transform: translateY(-1px);
 }
 
 .btn-red {
     border-color: var(--hacker-red);
     color: #ff8888;
-    box-shadow: 0 0 20px rgba(255, 68, 68, 0.4);
-    text-shadow: 0 0 8px #ff4444;
+    box-shadow: 0 0 15px rgba(255, 68, 68, 0.4);
+    text-shadow: 0 0 6px #ff4444;
 }
 
 .btn-red:hover {
     background: var(--hacker-red);
     color: white;
-    box-shadow: 0 0 60px #ff4444;
+    box-shadow: 0 0 45px #ff4444;
     border-color: white;
 }
 
 .btn-blue {
     border-color: var(--cyber-blue);
     color: var(--cyber-blue);
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
-    text-shadow: 0 0 8px cyan;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+    text-shadow: 0 0 6px cyan;
     width: 100%;
-    padding: 16px;  /* Reduced padding */
-    font-size: 1.2rem;  /* Slightly reduced */
-    margin-top: 8px;
+    padding: 12px;
+    font-size: 1rem;
+    margin-top: 5px;
 }
 
 .btn-blue:hover {
     background: var(--cyber-blue);
     color: black;
-    box-shadow: 0 0 70px cyan;
+    box-shadow: 0 0 50px cyan;
 }
 
 .btn-nav {
-    padding: 16px 40px;  /* Reduced padding */
-    font-size: 1.2rem;  /* Slightly reduced */
-    margin: 12px 8px;
+    padding: 12px 30px;
+    font-size: 1rem;
+    margin: 8px 5px;
     border-color: var(--hacker-green);
     color: var(--hacker-green);
-    min-width: 200px;  /* Slightly smaller */
+    min-width: 160px;
 }
 
 .btn-nav:hover {
     background: var(--hacker-green);
     color: black;
-    box-shadow: 0 0 70px var(--hacker-green);
+    box-shadow: 0 0 50px var(--hacker-green);
 }
 
 /* Scanline Animation */
 .scanline {
     width: 100%;
-    height: 80px;  /* Reduced height */
+    height: 60px;
     z-index: 5;
     background: linear-gradient(0deg, 
         rgba(0, 0, 0, 0) 0%, 
@@ -381,10 +380,10 @@ button:hover {
 
 /* Navigation Buttons Container */
 .nav-container {
-    margin-top: 25px;  /* Reduced margin */
+    margin-top: 12px;
     display: flex;
     justify-content: center;
-    gap: 20px;  /* Reduced gap */
+    gap: 12px;
     flex-wrap: wrap;
     position: relative;
     z-index: 10;
@@ -397,25 +396,29 @@ a {
 /* Small text */
 .small-text {
     color: #88ff88;
-    font-size: 0.85rem;  /* Slightly reduced */
+    font-size: 0.75rem;
     border-top: 1px dashed var(--hacker-green);
-    padding-top: 10px;
-    margin-top: 10px;
+    padding-top: 6px;
+    margin-top: 6px;
     letter-spacing: 1px;
 }
 
 /* Status Bar */
 .status-bar {
-    margin-top: 25px;  /* Reduced margin */
-    padding: 15px;  /* Reduced padding */
+    margin-top: 12px;
+    padding: 8px 12px;
     border-top: 1px solid var(--hacker-green);
     color: #88ff88;
     display: flex;
     justify-content: space-between;
-    font-size: 0.85rem;  /* Slightly reduced */
-    letter-spacing: 1.5px;  /* Reduced */
+    font-size: 0.75rem;
+    letter-spacing: 1px;
     background: rgba(0, 10, 5, 0.5);
-    border-radius: 0 0 16px 16px;
+    border-radius: 0 0 14px 14px;
+}
+
+.box > div[style*="display: flex"] {
+    margin-top: 5px;
 }
 
 /* ===== ENHANCED RESPONSIVE CODE ===== */
@@ -426,7 +429,7 @@ a {
         max-width: 1000px;
     }
     h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 }
 
@@ -441,17 +444,17 @@ a {
 @media (min-width: 768px) and (max-width: 991px) {
     .container {
         max-width: 700px;
-        padding: 12px;
+        padding: 8px;
     }
     h1 {
-        font-size: 2.4rem;
-        margin-bottom: 18px;
+        font-size: 2.2rem;
+        margin-bottom: 10px;
     }
     .panel {
-        padding: 25px;
+        padding: 12px;
     }
     .box h3 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 }
 
@@ -459,24 +462,24 @@ a {
 @media (min-width: 576px) and (max-width: 767px) {
     .container {
         max-width: 500px;
-        padding: 10px;
+        padding: 8px;
     }
     h1 {
-        font-size: 2rem;
-        margin-bottom: 15px;
+        font-size: 1.8rem;
+        margin-bottom: 10px;
     }
     .panel {
-        padding: 20px;
+        padding: 10px;
     }
     .box {
-        padding: 18px;
+        padding: 10px;
     }
     .nav-container {
-        gap: 15px;
+        gap: 10px;
     }
     .btn-nav {
-        min-width: 160px;
-        padding: 14px 30px;
+        min-width: 140px;
+        padding: 10px 20px;
     }
 }
 
@@ -484,18 +487,18 @@ a {
 @media (min-width: 480px) and (max-width: 575px) {
     .container {
         max-width: 440px;
-        padding: 8px;
-        margin: 10px auto;
+        padding: 5px;
+        margin: 5px auto;
     }
     h1 {
-        font-size: 1.8rem;
-        letter-spacing: 4px;
+        font-size: 1.6rem;
+        letter-spacing: 3px;
     }
     .panel {
-        padding: 18px;
+        padding: 10px;
     }
     .box {
-        padding: 15px;
+        padding: 8px;
     }
     .nav-container {
         flex-direction: column;
@@ -508,7 +511,7 @@ a {
     input {
         width: 100%;
         margin-right: 0;
-        margin-bottom: 8px;
+        margin-bottom: 5px;
     }
     .box > div[style*="display: flex"] {
         flex-direction: column;
@@ -520,68 +523,68 @@ a {
 @media (max-width: 479px) {
     .container {
         max-width: 100%;
-        padding: 6px;
+        padding: 5px;
         margin: 5px auto;
     }
     h1 {
-        font-size: 1.5rem;
-        letter-spacing: 3px;
-        margin-bottom: 12px;
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+        margin-bottom: 8px;
     }
     .terminal-status {
-        font-size: 0.8rem;
-        margin-bottom: 12px;
+        font-size: 0.7rem;
+        margin-bottom: 8px;
     }
     .panel {
-        padding: 15px;
+        padding: 8px;
     }
     .panel::before, .panel::after {
-        font-size: 18px;
+        font-size: 16px;
     }
     .box {
-        padding: 12px;
-        margin-bottom: 12px;
-    }
-    .box h3 {
-        font-size: 1.2rem;
-    }
-    .stats-num {
-        font-size: 1.8rem;
-    }
-    .nav-container {
-        flex-direction: column;
-        gap: 8px;
-    }
-    .btn-nav {
-        width: 100%;
-        padding: 12px 20px;
-        font-size: 1rem;
-    }
-    .status-bar {
-        flex-direction: column;
-        gap: 5px;
-        text-align: center;
-        font-size: 0.75rem;
-    }
-    button:not(.btn-nav) {
-        width: 100%;
-    }
-    .btn-blue {
-        font-size: 1rem;
-        padding: 12px;
-    }
-}
-
-/* Handle very small devices (below 360px) */
-@media (max-width: 359px) {
-    h1 {
-        font-size: 1.3rem;
+        padding: 8px;
+        margin-bottom: 8px;
     }
     .box h3 {
         font-size: 1.1rem;
     }
     .stats-num {
         font-size: 1.5rem;
+    }
+    .nav-container {
+        flex-direction: column;
+        gap: 5px;
+    }
+    .btn-nav {
+        width: 100%;
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    .status-bar {
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+        font-size: 0.7rem;
+    }
+    button:not(.btn-nav) {
+        width: 100%;
+    }
+    .btn-blue {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
+
+/* Handle very small devices (below 360px) */
+@media (max-width: 359px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+    .box h3 {
+        font-size: 1rem;
+    }
+    .stats-num {
+        font-size: 1.3rem;
     }
 }
     </style>
@@ -734,4 +737,5 @@ a {
     </script>
 </body>
 </html>
+
 
